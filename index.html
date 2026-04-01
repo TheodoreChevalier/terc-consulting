@@ -4,156 +4,127 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TERC Consulting</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; background:#f8fafc; color:#1e293b; }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'DM Sans',sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6}
 
-    header {
-      padding: 60px 20px;
-      text-align: center;
-      background: #ffffff;
-      border-bottom: 1px solid #e2e8f0;
-    }
+    h1,h2,h3,nav h2{font-family:'Space Grotesk',sans-serif}
 
-    header img { width: 90px; margin-bottom: 20px; }
+    nav{display:flex;justify-content:space-between;align-items:center;padding:15px 30px;background:#111827;border-bottom:1px solid #1f2937;position:sticky;top:0}
+    nav h2{font-size:1.1rem;font-weight:700}
+    nav a{margin-left:20px;text-decoration:none;color:#cbd5f5;font-weight:500}
 
-    h1 { font-size: 2.5rem; font-weight: 700; }
-    .slogan { margin-top: 15px; font-size: 1.2rem; color:#475569; }
+    
 
-    .section {
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
 
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
+header h1, header .slogan, header .cta{
+  position:relative;
+  z-index:2;
+  animation:fadeUp 1s ease forwards;
+}
 
-    .card {
-      background: #ffffff;
-      padding: 25px;
-      border-radius: 15px;
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      transition: transform 0.2s;
-    }
+header .slogan{animation-delay:0.2s}
+header .cta{animation-delay:0.4s}
 
-    .card:hover { transform: translateY(-3px); }
 
-    .card h3 { margin-bottom: 10px; }
-    .card p { color:#64748b; font-size: 0.95rem; }
+header{position:relative;padding:100px 20px;text-align:center;background:url('header.png') center/cover no-repeat;border-bottom:1px solid #1f2937;color:white;overflow:hidden}
+    header img{width:70px;margin-bottom:20px;position:relative;z-index:2}
+    h1{font-size:2.3rem;font-weight:700;letter-spacing:-0.5px;line-height:1.2;padding-bottom:5px;color:white}
+    .slogan{margin-top:15px;font-size:1.05rem;color:#e2e8f0}
+    .cta{margin-top:25px}
+    .cta a{background:#2563eb;color:white;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:600}
 
-    .about {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 30px;
-      align-items: center;
-    }
+    .section{padding:70px 20px;max-width:1100px;margin:auto}
+    h2{font-size:1.6rem;margin-bottom:40px;text-align:center}
 
-    .about img {
-      width: 100%;
-      border-radius: 15px;
-    }
+    .about{display:grid;grid-template-columns:1fr 2fr;gap:40px;align-items:center}
+    .about img{width:100%;border-radius:20px;box-shadow:0 10px 25px rgba(0,0,0,0.3)}
 
-    .contact {
-      background: #ffffff;
-      border-radius: 20px;
-      padding: 30px;
-      margin-top: 40px;
-      border: 1px solid #e2e8f0;
-    }
+    .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px}
+    .card{background:#ffffff;color:#1e293b;padding:30px;border-radius:20px;border:1px solid #e2e8f0;box-shadow:0 8px 20px rgba(0,0,0,0.1);transition:0.3s;text-align:center}
+    .card img{width:60px;margin-bottom:15px}
+    .card:hover{transform:translateY(-5px)}
+    .card h3{margin-bottom:10px;font-size:1.1rem;color:#0f172a}
+    .card p{color:#475569}
 
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border-radius: 8px;
-      border: 1px solid #cbd5f5;
-      background:#f1f5f9;
-    }
+    .contact{background:#ffffff;color:#1e293b;border-radius:20px;padding:35px;margin-top:50px;border:1px solid #e2e8f0}
+    input,textarea{width:100%;padding:12px;margin:10px 0;border-radius:8px;border:1px solid #cbd5e1;background:#f8fafc;color:#1e293b;font-family:'DM Sans'}
+    button{width:100%;padding:12px;border:none;border-radius:8px;background:#2563eb;color:white;font-weight:600;cursor:pointer}
+    button:hover{background:#1d4ed8}
 
-    button {
-      width: 100%;
-      padding: 12px;
-      border-radius: 8px;
-      border: none;
-      background:#2563eb;
-      color:white;
-      font-weight: 600;
-      cursor:pointer;
-    }
-
-    button:hover { background:#1d4ed8; }
-
-    footer {
-      text-align:center;
-      padding:20px;
-      font-size:0.9rem;
-      color:#94a3b8;
-    }
+    footer{text-align:center;padding:30px;color:#64748b}
 
     @media(max-width:800px){
-      .about { grid-template-columns: 1fr; text-align:center; }
-    }
-
-    @media(max-width:600px){
-      h1 { font-size: 2rem; }
-      .slogan { font-size: 1rem; }
-    }
+  .about{grid-template-columns:1fr;text-align:center}
+  .about img{width:65%;ma
+    @media(max-width:600px){h1{font-size:1.9rem}}
   </style>
 </head>
 <body>
 
+<nav>
+  <h2>TERC</h2>
+  <div>
+    <a href="#about">À propos</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
 <header>
-  <img src="logo.png" alt="TERC Logo">
+  <img src="logo.png" alt="logo">
   <h1>TERC Consulting</h1>
   <div class="slogan">L’expertise QA et pilotage IT au service de vos ambitions</div>
+  <div class="cta">
+    <a href="#contact">Prendre contact</a>
+  </div>
 </header>
 
-<section class="section">
-
-  <h2 style="margin-bottom:30px; text-align:center;">À propos</h2>
-
+<section class="section" id="about">
+  <h2>À propos</h2>
   <div class="about">
-    <img src="profile.jpg" alt="Profil">
+    <img src="profile.jpg" alt="profil">
     <div>
-      <p style="margin-bottom:15px; line-height:1.6;">
+      <p>
         Consultant spécialisé en Quality Assurance, analyse fonctionnelle et pilotage de projets IT, je dispose de plus de 6 ans d’expérience au sein d’Immovlan, plateforme digitale majeure du secteur immobilier en Belgique.
       </p>
-      <p style="line-height:1.6; color:#64748b;">
-        Au cours de mon parcours, j’ai contribué à la mise en œuvre et à l’amélioration continue de solutions digitales à fort enjeu, en intervenant sur l’ensemble du cycle projet : cadrage, spécifications, tests et pilotage. Mon approche allie rigueur, compréhension métier et exigence de qualité pour sécuriser vos projets IT.
+      <p style="margin-top:15px;color:#94a3b8">
+        J’interviens sur l’ensemble du cycle projet : cadrage, spécifications, tests et pilotage. Mon objectif : sécuriser vos projets IT avec rigueur, efficacité et compréhension métier.
       </p>
     </div>
   </div>
+</section>
 
-  <h2 style="margin:60px 0 30px; text-align:center;">Mes Services</h2>
-
+<section class="section" id="services">
+  <h2>Mes Services</h2>
   <div class="services">
-
     <div class="card">
-      <h3>Quality Assurance (QA)</h3>
-      <p>Stratégie de tests, automatisation et garantie de qualité pour sécuriser vos livraisons.</p>
+      <img src="qa.png" alt="QA">
+      <h3>Quality Assurance</h3>
+      <p>Stratégie de tests, automatisation et assurance qualité pour fiabiliser vos livraisons.</p>
     </div>
-
     <div class="card">
-      <h3>AMOA / Analyse Fonctionnelle</h3>
-      <p>Recueil des besoins, rédaction des spécifications et accompagnement métier.</p>
+      <img src="amoa.png" alt="AMOA">
+      <h3>AMOA</h3>
+      <p>Analyse des besoins, rédaction des spécifications et accompagnement métier.</p>
     </div>
-
     <div class="card">
-      <h3>Pilotage de Projets IT</h3>
-      <p>Gestion de projet, coordination des équipes et respect des délais et budgets.</p>
+      <img src="pilotage.png" alt="Pilotage IT">
+      <h3>Pilotage IT</h3>
+      <p>Gestion de projet, coordination des équipes et respect des délais.</p>
     </div>
-
   </div>
+</section>
 
+<section class="section" id="contact">
+  <h2>Me contacter</h2>
   <div class="contact">
-    <h2 style="text-align:center; margin-bottom:20px;">Contact</h2>
-
+    <h2 style="text-align:center;margin-bottom:40px">Vos coordonnées</h2>
     <form action="https://formspree.io/f/mvzvrrgq" method="POST">
       <input type="text" name="name" placeholder="Votre nom" required>
       <input type="email" name="email" placeholder="Votre email" required>
@@ -162,11 +133,10 @@
       <button type="submit">Envoyer</button>
     </form>
   </div>
-
 </section>
 
 <footer>
-  © 2026 TERC Consulting - Tous droits réservés
+  © 2026 TERC Consulting
 </footer>
 
 </body>
